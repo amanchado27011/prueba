@@ -1,0 +1,130 @@
+:root {
+  color: #1c2430;
+  background: #f3f5f7;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.45;
+  --surface: #fff;
+  --border: #e1e6ec;
+  --muted: #5d6b7a;
+  --accent: #0f6e56;
+  --accent-soft: #e7f5f1;
+  --warn: #8a5a00;
+  --warn-bg: #fff6e5;
+  --danger: #8d2a2a;
+  --danger-bg: #fdecec;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.side {
+  background: #14352d;
+  color: #e7f3ef;
+  padding: 1.1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.brand { font-weight: 700; letter-spacing: -0.03em; margin: 0 0.4rem 0.8rem; }
+.brand span { display: block; font-weight: 500; color: #b7d4cb; font-size: 0.78rem; }
+.side a {
+  color: #e7f3ef;
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  display: block;
+}
+.side a.router-link-active, .side a:hover { background: rgba(255,255,255,0.1); }
+.side .user { margin-top: auto; font-size: 0.82rem; color: #c5ddd6; padding: 0.6rem; }
+.main { padding: 1.25rem 1.4rem 2.5rem; min-width: 0; }
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 1.45rem; margin: 0; letter-spacing: -0.03em; }
+.muted { color: var(--muted); }
+.stale {
+  background: var(--warn-bg);
+  color: var(--warn);
+  border: 1px solid #f0ddb0;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.8rem;
+}
+.error {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #f3c7c7;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.8rem;
+}
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.7rem; margin-bottom: 1rem; }
+.kpi, .panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.kpi { padding: 0.75rem 0.85rem; }
+.kpi b { display: block; font-size: 1.35rem; letter-spacing: -0.03em; }
+.kpi span { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.panel { padding: 0.9rem 1rem; margin-bottom: 0.9rem; }
+.filters { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.55rem; }
+label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.78rem; color: var(--muted); }
+input, select, textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.5rem;
+  background: #fff;
+  color: inherit;
+}
+textarea { min-height: 4.5rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
+.btn {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+  padding: 0.42rem 0.75rem;
+}
+.btn.secondary { background: white; color: var(--accent); }
+.btn.ghost { background: transparent; color: #1c2430; border-color: var(--border); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 0.45rem 0.4rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+.tree-btn { background: none; border: 0; color: inherit; padding: 0; font-weight: 650; }
+.indent-1 { padding-left: 1rem; }
+.indent-2 { padding-left: 2rem; }
+.badge { display: inline-block; border-radius: 999px; padding: 0.1rem 0.45rem; background: var(--accent-soft); color: var(--accent); font-size: 0.75rem; }
+.login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.login .panel { width: min(420px, 100%); }
+.modal-back {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.modal { width: min(860px, 100%); max-height: 90vh; overflow: auto; }
+.menu-btn { display: none; }
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .side { display: none; }
+  .side.open { display: flex; }
+  .menu-btn { display: inline-flex; }
+}

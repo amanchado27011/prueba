@@ -1,0 +1,37 @@
+{
+  "name": "gestion-demanda",
+  "private": true,
+  "description": "Análisis de demanda Jira de solo lectura para Dirección General.",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "postinstall": "prisma generate",
+    "dev:api": "npm run dev -w @gd/api",
+    "dev:web": "npm run dev -w @gd/web",
+    "build": "npm run build -w @gd/api && npm run build -w @gd/web",
+    "build:api": "npm run build -w @gd/api",
+    "build:web": "npm run build -w @gd/web",
+    "test": "npm run test -w @gd/api",
+    "prisma:validate": "prisma validate",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "verify": "tsx scripts/verify.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.14.0",
+    "prisma": "^6.19.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4"
+  }
+}
